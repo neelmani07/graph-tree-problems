@@ -1,17 +1,19 @@
 import java.util.*;
 class Dijkstra
 {
-	static final int V = 9;
+	static final int V = 4;
 	int findNextBestVertex(int dist[],int visitD[])
 	{	int vertex=0,min=999;//Integer.MAX_VALUE;
-		for(int v=0;v<V;v++)
+		for(int v=0,i=1;v<V;v++,i++)
 		{
-			if(dist[v]<=min && visitD[v]==0)
+			if(dist[v]<min && visitD[v]==0)
 			{
+				System.out.println(i);
 				min=dist[v];
 				vertex=v;
 			}
 		}
+		//System.out.println(vertex+"n v");
 		return vertex;
 	}
 	void printPaths(int dist[])
@@ -65,7 +67,8 @@ class Dijkstra
                                       { 0, 0, 0, 0, 0, 2, 0, 1, 6 }, 
                                       { 8, 11, 0, 0, 0, 0, 1, 0, 7 }, 
                                       { 0, 0, 2, 0, 0, 0, 6, 7, 0 } }; 
+                int [][]gph=new int[][]{{0,0,0,0},{1,0,1,0},{0,0,0,1},{0,0,0,0}};
          Dijkstra obj= new Dijkstra();
-         obj.impDijkstraAlgo(graph,0);
+         obj.impDijkstraAlgo(gph,0);
 	}
 }
